@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage Example</title>
+</head>
+<body>
+    <p id="count">The count: 0</p>
+    <button id="incrementButton">Increment</button>
+
+    <script>
+        // Get the count value from local storage, or set it to 0 if not present
+        let count = localStorage.getItem('count') || 0;
+
+        // Update the initial count value in the paragraph tag
+        document.getElementById('count').textContent = `The count: ${count}`;
+
+        // Get a reference to the button
+        const incrementButton = document.getElementById('incrementButton');
+
+        // Add a click event listener to the button
+        incrementButton.addEventListener('click', () => {
+            // Increment the count
+            count++;
+
+            // Update the count value in the paragraph tag
+            document.getElementById('count').textContent = `The count: ${count}`;
+
+            // Store the updated count value in local storage
+            localStorage.setItem('count', count);
+        });
+    </script>
+</body>
+</html>
