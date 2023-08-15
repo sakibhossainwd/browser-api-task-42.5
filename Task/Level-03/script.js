@@ -44,3 +44,32 @@ const reset = () => {
     localStorage.removeItem('email');
     localStorage.removeItem('message');
 }
+
+
+// Level-04 task
+// send button
+const send = () => {
+    const name1 = document.getElementById('name').value;
+    const email1 = document.getElementById('email').value;
+    const message1 = document.getElementById('message').value;
+    // console.log(name1, email1, message1)
+    savedDataToLocalStorage(name1, email1, message1)
+}
+
+const getStorageData = () => {
+    let data = {};
+    const savedData = localStorage.getItem('data');
+    if(savedData){
+        data = JSON.parse(savedData);
+    }
+    return data;
+}
+
+const savedDataToLocalStorage = (name1, email1, message1) => {
+    const data = getStorageData();
+    data[name1] = email1, message1;
+    const dataStringify = JSON.stringify(data);
+    localStorage.setItem('data', dataStringify);
+}
+
+
