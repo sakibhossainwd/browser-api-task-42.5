@@ -15,21 +15,23 @@
         <h1>Please Contact Me</h1>
         <div class="name-box">
             <input type="text" id="name" placeholder="Your Name">
-            <button>Delete Name</button>
-            <button>Send Name</button>
+            <button onclick="deleteName()">Delete Name</button>
+            <button onclick="sendName()">Send Name</button>
         </div>
         <br>
         <div class="email-box">
             <input type="email" id="email" placeholder="Your Email">
-            <button>Delete Email</button>
-            <button>Send Email</button>
+            <button onclick="deleteEmail()">Delete Email</button>
+            <button onclick="sendEmail()">Send Email</button>
         </div>
         <br>
         <div class="message-box">
             <input type="text" id="message" placeholder="Your Message">
-            <button>Delete Message</button>
-            <button>Send Message</button>
+            <button onclick="deleteMessage()">Delete Message</button>
+            <button onclick="sendMessage()">Send Message</button>
         </div>
+        <br>
+        <button onclick="reset()">Reset</button>
     </section>
 
     <script src="script.js"></script>
