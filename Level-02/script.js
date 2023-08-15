@@ -9,32 +9,15 @@ stap-5: Now the result is stored in local storage. So, if you reload the page or
 
 
 const p = document.getElementById('number');
+let count = localStorage.getItem('count') || 0;
+p.textContent = `${count}`;
 const increaseBtn = document.getElementById('increaseBtn');
 
-let clickCount = 0;
+increaseBtn.addEventListener('click', () => {
+    count++;
+    p.textContent = `${count}`;
 
-increaseBtn.addEventListener("click", () => {
-    clickCount++;
-    p.innerText = clickCount;
-    saveIncreaseNumber(clickCount);
+    localStorage.setItem('count', count)
 })
 
-const getStoredNumber = () => {
-    let number = {};
-    const increaseNumber = localStorage.getItem('number');
-    if(increaseNumber){
-        number = JSON.parse(increaseNumber);
-    }
-    return number;
-}
 
-const saveIncreaseNumber = (number) => {
-    localStorage.setItem('number', number);
-}
-
-const displayIncreaseNumberFromLocalStorage = () => {
-    const increaseNumber = getStoredNumber();
-    p.innerText = increaseNumber;
-}
-
-displayIncreaseNumberFromLocalStorage();
