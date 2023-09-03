@@ -11,6 +11,8 @@ step-5: If you click on the "Reset" button, the key & value will be cleared from
 // Name part
 const sendName = () => {
     const name = document.getElementById('name').value;
+    const name01 = document.getElementById('name')
+    name01.value = '';
     localStorage.getItem('name');
     localStorage.setItem('name', name)
 }
@@ -21,6 +23,8 @@ const deleteName = () => {
 // Email part
 const sendEmail = () => {
     const email = document.getElementById('email').value;
+    const email01 = document.getElementById('email')
+    email01.value = '';
     localStorage.getItem('email');
     localStorage.setItem('email', email)
 }
@@ -31,17 +35,12 @@ const deleteEmail = () => {
 // message part
 const sendMessage = () => {
     const message = document.getElementById('message').value;
+    const message01 = document.getElementById('message');
+    message01.value = '';
     localStorage.getItem('message');
     localStorage.setItem('message', message)
 }
 const deleteMessage = () => {
-    localStorage.removeItem('message');
-}
-
-// Reset part
-const reset = () => {
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
     localStorage.removeItem('message');
 }
 
@@ -50,8 +49,14 @@ const reset = () => {
 // send button
 const send = () => {
     const name1 = document.getElementById('name').value;
+    const name10 = document.getElementById('name')
+    name10.value = '';
     const email1 = document.getElementById('email').value;
+    const email20 = document.getElementById('email')
+    email20.value = '';
     const message1 = document.getElementById('message').value;
+    const message30 = document.getElementById('message');
+    message30.value = '';
     // console.log(name1, email1, message1)
     savedDataToLocalStorage(name1, email1, message1)
 }
@@ -70,6 +75,15 @@ const savedDataToLocalStorage = (name1, email1, message1) => {
     data[name1] = email1, message1;
     const dataStringify = JSON.stringify(data);
     localStorage.setItem('data', dataStringify);
+};
+
+// Reset part
+const reset = () => {
+    localStorage.removeItem('name');
+    localStorage.removeItem('email');
+    localStorage.removeItem('message');
+    localStorage.removeItem('data');
 }
+
 
 
